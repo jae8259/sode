@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2024-2025 NVIDIA CORPORATION AND AFFILIATES.  All rights reserved.
+# Copyright (c) 2024-2026 NVIDIA CORPORATION AND AFFILIATES.  All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification, are permitted
 # provided that the following conditions are met:
@@ -156,7 +156,7 @@ vanilla_app_srcs = [
 ]
 
 app_srcs += [
-	# SPDK External NVMf Trasnport Sources
+	# SPDK External NVMf Transport Sources
 	'host/doca_transport.c',
 	'host/nvmf_doca_io.c',
 	# SPDK External RPC Sources
@@ -201,7 +201,7 @@ foreach dpa_dev_device_lib_name : dpa_dev_device_lib_names
 	dpa_device_link_flags += ' -ldoca_' + dpa_dev_device_lib_name
 endforeach
 
-if not get_option('dpacc_mcpu').contains('nv-dpa-bf3') 
+if not get_option('dpacc_mcpu').contains('nv-dpa-bf3')
 	warning('Skipping compilation of DOCA Application - @0@ - only BF3 compilation is supported.'.format(APP_NAME))
 	subdir_done()
 endif
